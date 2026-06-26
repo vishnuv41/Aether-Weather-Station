@@ -1,0 +1,57 @@
+<svg viewBox="0 0 760 760" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="760" fill="#ffffff"/>
+
+  <!-- 1. Sensors -->
+  <rect x="270" y="20" width="220" height="56" rx="10" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="380" y="54" text-anchor="middle" font-size="16" font-weight="600" fill="#1e1b4b">Environmental Sensors</text>
+
+  <line x1="380" y1="76" x2="380" y2="116" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2. ESP32 -->
+  <rect x="290" y="118" width="180" height="56" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="1.5"/>
+  <text x="380" y="152" text-anchor="middle" font-size="16" font-weight="600" fill="#083344">ESP32</text>
+
+  <line x1="380" y1="174" x2="380" y2="222" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="396" y="202" font-size="12.5" fill="#64748b" font-style="italic">MQTT over TLS</text>
+
+  <!-- 3. AWS IoT Core -->
+  <rect x="250" y="224" width="260" height="56" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+  <text x="380" y="258" text-anchor="middle" font-size="16" font-weight="600" fill="#7c2d12">AWS IoT Core</text>
+
+  <line x1="380" y1="280" x2="380" y2="320" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 4. Express backend -->
+  <rect x="220" y="322" width="320" height="56" rx="10" fill="#f0fdf4" stroke="#15803d" stroke-width="1.5"/>
+  <text x="380" y="350" text-anchor="middle" font-size="16" font-weight="600" fill="#14532d">Express.js Backend</text>
+  <text x="380" y="368" text-anchor="middle" font-size="12.5" fill="#3f6212">(hosted on Render)</text>
+
+  <!-- branch lines -->
+  <line x1="320" y1="378" x2="190" y2="440" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="180" y="412" font-size="12.5" fill="#64748b" font-style="italic">Store</text>
+
+  <line x1="440" y1="378" x2="570" y2="440" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="525" y="412" font-size="12.5" fill="#64748b" font-style="italic">REST API</text>
+
+  <!-- 5a. DynamoDB -->
+  <rect x="40" y="442" width="280" height="60" rx="30" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="180" y="478" text-anchor="middle" font-size="15" font-weight="600" fill="#1e3a8a">Amazon DynamoDB</text>
+
+  <!-- 5b. React dashboard -->
+  <rect x="440" y="442" width="280" height="56" rx="10" fill="#fdf4ff" stroke="#a21caf" stroke-width="1.5"/>
+  <text x="580" y="466" text-anchor="middle" font-size="15" font-weight="600" fill="#701a75">React Dashboard</text>
+  <text x="580" y="484" text-anchor="middle" font-size="12.5" fill="#86198f">(hosted on Vercel)</text>
+
+  <line x1="580" y1="498" x2="580" y2="538" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 6. User browser -->
+  <rect x="460" y="540" width="240" height="56" rx="10" fill="#fafafa" stroke="#3f3f46" stroke-width="1.5"/>
+  <text x="580" y="574" text-anchor="middle" font-size="16" font-weight="600" fill="#18181b">User Browser</text>
+
+  <text x="380" y="700" text-anchor="middle" font-size="13" fill="#9ca3af">Aether Weather Station — Cloud Mode Data Flow</text>
+</svg>
