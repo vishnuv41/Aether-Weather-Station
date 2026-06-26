@@ -125,25 +125,11 @@ This makes Aether equally useful for remote, long-term monitoring and for fast, 
 
 ### Cloud Mode Data Flow
 
-```mermaid
-flowchart TD
-    A[Environmental Sensors] --> B[ESP32]
-    B -->|MQTT over TLS| C[AWS IoT Core]
-    C --> D[Express.js Backend on Render]
-    D -->|Store| E[(Amazon DynamoDB)]
-    D -->|REST API| F[React Dashboard on Vercel]
-    F --> G[User Browser]
-```
+![Cloud Mode Data Flow](assets/architecture-cloud-mode.svg)
 
 ### Local Mode Data Flow
 
-```mermaid
-flowchart TD
-    A[Environmental Sensors] --> B[ESP32]
-    B -->|Embedded HTTP Server| C[React Dashboard]
-    C --> D[User Browser]
-    D -.No internet required.- C
-```
+![Local Mode Data Flow](assets/architecture-local-mode.svg)
 
 **Working Principle:** the ESP32 continuously reads all connected sensors and, at a configurable interval, builds a JSON packet such as:
 
