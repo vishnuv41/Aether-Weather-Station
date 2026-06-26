@@ -1,76 +1,235 @@
-# Aether — ESP32 Weather Station Dashboard
+🌦️ Aether Weather Station
 
-A full-stack weather station: ESP32 firmware, an Express/AWS IoT/DynamoDB
-backend, and a premium animated React dashboard that works in two modes —
-**Cloud** (ESP32 → AWS IoT → DynamoDB → React) and **Local** (Browser → ESP32
-IP directly, live values only).
+<div align="center">Intelligent Cloud-Based IoT Weather Monitoring System
 
-```
-weather-station/
-├── esp32/        WeatherStation.ino — firmware (non-blocking, controllable interval)
-├── backend/      Node/Express API: AWS IoT bridge + DynamoDB + CSV/PDF export
-└── frontend/     React + Vite dashboard (Cloud/Local switch, live + history)
-```
+ESP32 • AWS IoT Core • DynamoDB • Express.js • React • Vercel • Render
 
-## ⚠️ Rotate your credentials first
+Real-time environmental monitoring with dual connectivity (Cloud + Local), historical analytics, remote device control, and professional dashboard.
 
-Earlier in this conversation you pasted, in plain text:
-- Your real WiFi password
-- An AWS IoT device certificate **and its private key**
-- An AWS IAM access key + secret
+---
 
-All three must be treated as compromised — anyone with access to this chat
-log now has them too. Before deploying any of this code:
+"License" (https://img.shields.io/badge/License-MIT-blue.svg)
+"ESP32" (https://img.shields.io/badge/ESP32-IoT-red)
+"AWS IoT" (https://img.shields.io/badge/AWS-IoT%20Core-orange)
+"React" (https://img.shields.io/badge/React-18-blue)
+"Express" (https://img.shields.io/badge/Express.js-Backend-green)
+"DynamoDB" (https://img.shields.io/badge/DynamoDB-NoSQL-blue)
+"Vercel" (https://img.shields.io/badge/Vercel-Deployed-black)
+"Render" (https://img.shields.io/badge/Render-Backend-purple)
 
-1. **AWS IoT Core** console → Security → Certificates → deactivate & delete
-   the old certificate → create a new one → attach your policy → download
-   the new CA/cert/key into `backend/certs/` and paste the new cert/key into
-   `esp32/WeatherStation.ino`.
-2. **AWS IAM** console → deactivate & delete the old access key → create a
-   new one → put it in `backend/.env` (ideally scoped to only
-   `dynamodb:PutItem`/`dynamodb:Query` on the `WeatherData` table — see
-   `backend/README.md` for the exact policy).
-3. Change your WiFi password and update it in the firmware.
+</div>---
 
-None of the generated code below contains your real secrets — everything
-uses placeholders you fill in after rotating.
+📌 Overview
 
-## How it fits together
+Aether Weather Station is a professional IoT-based environmental monitoring platform that combines an ESP32 weather station with AWS cloud services and a modern React dashboard.
 
-```
-Sensors → ESP32 ──┬─→ AWS IoT Core (MQTT/TLS, 8883) → Rule → DynamoDB → backend → React (Cloud mode)
-                   └─→ ESP32 Web Server (port 80, /data JSON) → React (Local mode, live only)
-```
+The system continuously collects sensor data, securely publishes it to AWS IoT Core using MQTT, stores readings in DynamoDB, and visualizes them through an interactive web dashboard.
 
-- **Cloud mode** gets you history, CSV/PDF export, and the Device Control
-  card (changes the ESP32's upload interval over MQTT).
-- **Local mode** needs no AWS account at all — just the ESP32's IP — but
-  only shows the current live reading, since the device itself stores no
-  history.
+It also supports Local Wi-Fi Mode for direct communication with the ESP32 without relying on cloud services.
 
-## Quick start
+---
 
-1. **Firmware**: open `esp32/WeatherStation.ino` in Arduino IDE, fill in
-   WiFi + rotated AWS IoT details, flash it. Note the IP it prints on boot.
-2. **Backend**: `cd backend && cp .env.example .env` (fill in AWS keys, IoT
-   endpoint, cert paths) → `npm install && npm start`.
-3. **Frontend**: `cd frontend && cp .env.example .env` → `npm install && npm run dev`
-   → open the printed URL.
-4. In the dashboard's **Settings** page, either:
-   - leave it on **Cloud** (uses the backend you just started), or
-   - switch to **Local** and type in the ESP32's IP, then **Connect**.
+✨ Features
 
-See `backend/README.md` and `frontend/README.md` for full details
-(DynamoDB table schema, IAM policy, API reference, etc).
+☁ Cloud Mode
 
-## What's inside the dashboard
+- AWS IoT Core integration
+- MQTT communication
+- DynamoDB data storage
+- Historical weather data
+- Remote monitoring from anywhere
+- Device status monitoring
 
-- **Live Data** — hero temperature reading with a color that drifts warmer/
-  cooler with the live value, 8 sensor cards, 4 smoothly-updating live
-  trend charts (Temp/Humidity/Pressure/Air Quality), a Sensor Health panel,
-  Device Control (upload interval), and Export shortcuts.
-- **History** — date-range picker (1h / 24h / 7d / custom), 4 full history
-  graphs, calculated insight cards (dew point, heat index, pressure trend,
-  air quality, rain events), a stored-readings table, and CSV/PDF export.
-- **Settings** — switch Cloud ⇄ Local, enter the ESP32 IP and connect, or
-  point at a different backend URL.
+📡 Local Mode
+
+- Direct ESP32 communication
+- No internet required
+- Same Wi-Fi network access
+- Low latency live updates
+
+📊 Dashboard
+
+- Live sensor readings
+- Temperature trends
+- Humidity trends
+- Pressure trends
+- Air quality monitoring
+- Rain detection
+- UV Index
+- Light intensity
+- Wind speed
+- Sensor health status
+- CSV Export
+- PDF Report Generation
+- Historical data viewer
+
+⚙ Device Control
+
+- Change upload interval
+- Device connectivity monitoring
+- Online/Offline detection
+- Packet statistics
+
+---
+
+🛠 Hardware
+
+- ESP32 DevKit V1
+- DHT11
+- BMP280
+- BH1750
+- MQ135
+- GUVA UV Sensor
+- Rain Sensor
+- Anemometer
+
+---
+
+💻 Software Stack
+
+Frontend
+
+- React
+- Vite
+- Chart.js
+- CSS
+
+Backend
+
+- Node.js
+- Express.js
+- AWS SDK
+- MQTT
+- REST API
+
+Cloud
+
+- AWS IoT Core
+- Amazon DynamoDB
+- Render
+- Vercel
+
+---
+
+🏗 System Architecture
+
+Sensors
+   │
+   ▼
+ESP32
+   │
+   ├──────── Local HTTP API
+   │              │
+   │              ▼
+   │        React Dashboard
+   │
+   └──────── MQTT
+             │
+             ▼
+        AWS IoT Core
+             │
+             ▼
+         DynamoDB
+             │
+             ▼
+      Express Backend
+             │
+             ▼
+      React Dashboard
+
+---
+
+📁 Project Structure
+
+Aether-Weather-Station/
+
+├── backend/
+│   ├── src/
+│   ├── certs/
+│   └── package.json
+│
+├── esp32/
+│   └── WeatherStation.ino
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── README.md
+
+---
+
+🚀 Deployment
+
+Frontend
+
+Vercel
+
+Backend
+
+Render
+
+Cloud Services
+
+AWS IoT Core
+
+Amazon DynamoDB
+
+---
+
+📈 Live Dashboard
+
+Features include:
+
+- Live Weather
+- Historical Analytics
+- Cloud Mode
+- Local Mode
+- Device Control
+- Sensor Health
+- Export CSV
+- Generate PDF Reports
+
+---
+
+🔒 Security
+
+- MQTT over TLS
+- AWS Certificates
+- Private Keys
+- Secure Cloud Communication
+- Environment Variables
+- CORS Protection
+
+---
+
+🎯 Future Enhancements
+
+- AI Weather Prediction
+- Mobile Application
+- Weather Forecast API
+- Push Notifications
+- OTA Firmware Updates
+- Multi-device Support
+- GPS Integration
+- Solar Power Monitoring
+
+---
+
+👨‍💻 Author
+
+Vishnu Varman
+
+Electronics & Communication Engineering
+
+IoT | Embedded Systems | Full Stack Development | Cloud Computing
+
+GitHub:
+https://github.com/vishnuv41
+
+---
+
+⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
