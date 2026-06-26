@@ -1,24 +1,25 @@
-🌦️ Aether Weather Station
+<div align="center">
 
-<div align="center">Intelligent Cloud-Based IoT Weather Monitoring System
+# 🌦️ Aether Weather Station
 
-ESP32 • AWS IoT Core • DynamoDB • Express.js • React • Vercel • Render
+### Intelligent Cloud-Based IoT Weather Monitoring System
 
-Real-time environmental monitoring with dual connectivity (Cloud + Local), historical analytics, remote device control, and professional dashboard.
+**ESP32 • AWS IoT Core • DynamoDB • Express.js • React • Vite • Render • Vercel**
 
----
+Real-time environmental monitoring with dual connectivity (Cloud + Local), historical analytics, remote device control, and a professional dashboard.
 
-"License" (https://img.shields.io/badge/License-MIT-blue.svg)
-"ESP32" (https://img.shields.io/badge/ESP32-IoT-red)
-"AWS IoT" (https://img.shields.io/badge/AWS-IoT%20Core-orange)
-"React" (https://img.shields.io/badge/React-18-blue)
-"Express" (https://img.shields.io/badge/Express.js-Backend-green)
-"DynamoDB" (https://img.shields.io/badge/DynamoDB-NoSQL-blue)
-"Vercel" (https://img.shields.io/badge/Vercel-Deployed-black)
-"Render" (https://img.shields.io/badge/Render-Backend-purple)
+<br>
 
-</div>---
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![ESP32](https://img.shields.io/badge/ESP32-IoT-red)
+![AWS IoT](https://img.shields.io/badge/AWS-IoT%20Core-orange)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![Express](https://img.shields.io/badge/Express.js-Backend-green)
+![DynamoDB](https://img.shields.io/badge/DynamoDB-NoSQL-4053D6?logo=amazondynamodb)
+![Render](https://img.shields.io/badge/Render-Deployed-5B44F3)
+![Vercel](https://img.shields.io/badge/Vercel-Live-black?logo=vercel)
 
+</div>
 📌 Overview
 
 Aether Weather Station is a professional IoT-based environmental monitoring platform that combines an ESP32 weather station with AWS cloud services and a modern React dashboard.
