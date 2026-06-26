@@ -15,7 +15,7 @@
 
 **Real-time environmental monitoring with dual connectivity (Cloud + Local), historical analytics, remote device control, and a professional web dashboard.**
 
-[Overview](#-overview) • [Features](#-features) • [Architecture](#%EF%B8%8F-system-architecture) • [Hardware](#-hardware-components) • [Tech Stack](#-software-stack) • [API](#-rest-api-reference) • [Deployment](#-deployment) • [Roadmap](#-future-enhancements)
+[Overview](#-overview) • [Screenshots](#-dashboard-preview) • [Features](#-features) • [Architecture](#%EF%B8%8F-system-architecture) • [Hardware](#-hardware-components) • [Tech Stack](#-software-stack) • [API](#-rest-api-reference) • [Deployment](#-deployment) • [Roadmap](#-future-enhancements)
 
 </div>
 
@@ -31,6 +31,22 @@ The system supports two independent communication paths:
 - **📡 Local Mode** — direct ESP32-to-dashboard communication over the same Wi-Fi network, with no internet dependency
 
 This makes Aether equally useful for remote, long-term monitoring and for fast, low-latency on-site readings — covering the complete IoT pipeline from sensor acquisition to cloud storage to data visualization.
+
+---
+
+## 📸 Dashboard Preview
+
+**Live Weather** — real-time readings across all eight environmental metrics, with live trend graphs for temperature, humidity, pressure, and air quality.
+
+![Live Weather Dashboard](assets/dashboard-live-weather.png)
+
+**Sensor Health & Device Control** — per-sensor online status, upload-interval control, and one-click CSV/PDF export.
+
+![Sensor Health and Device Control](assets/dashboard-sensor-health.png)
+
+**Historical Analytics** — DynamoDB-backed history with selectable time ranges and interactive charts.
+
+![Historical Analytics](assets/dashboard-history.png)
 
 ---
 
